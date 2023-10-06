@@ -1,0 +1,16 @@
+[
+    {
+        "model": "products.productcategory",
+        "pk": 1,
+        "fields": {
+            "title": "Взуття"
+        }
+    },
+    {
+        "model": "products.productcategory",
+        "pk": 2,
+        "fields": {
+            "title": "Одяг"
+        }
+    }
+]

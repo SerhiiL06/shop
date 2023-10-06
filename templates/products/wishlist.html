@@ -1,0 +1,38 @@
+
+
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container pt-5">
+    {% if object_list %}
+        <table class="table table-striped table-bordered mt-4">
+            <thead class="thead-light">
+                <tr>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for wishlist_item in object_list %}
+                <tr>
+                    <td>{{ wishlist_item.product.title }}</td>
+                    <td>{{ wishlist_item.product.price }}</td>
+                    <td>
+                        <a href="{%url 'products:basket_add' wishlist_item.product.id%}"><button class="btn btn-success">Додати в корзину</button></a>
+                        <a href="{%url 'products:wishlist_remove' wishlist_item.id%}"><button class="btn btn-warning">Видалити</button></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="text-center mt-5">
+            <h4>Ваш список бажань поки що пустий</h4>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

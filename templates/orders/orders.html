@@ -1,0 +1,47 @@
+{%extends 'base.html'%}
+{%load static humanize%}
+
+{%block css%}<link href="{%static 'vendor/css/orders.css'%}" rel="stylesheet">{%endblock%}
+
+
+
+{%block content%}
+
+<!-- Page Content -->
+<section>
+    <div class="container pt-5">
+        <div class="text-center mt-5">
+            <h1>Заказы</h1>
+            <div class="orders mt-5">
+                <table class="table">
+                    <thead>
+                    <tr class="table-light">
+                        <th scope="col">#</th>
+                        <th scope="col">Статус</th>
+                        <th scope="col">Создан</th>
+                        <th scope="col">Итого</th>
+                        <th scope="col">Действие</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {%for order in object_list%}
+                    <tr>
+                        <th scope="row">{{order.id}}</th>
+                        <td>{{order.get_status_display}}</td>
+                        <td>{{order.created|naturaltime}}</td>
+                        <td>{{order.basket_history.price}}.</td>
+                        <td>
+                            <a href="{%url 'orders:order-detail' order.id%}">просмотреть</a>
+
+                        </td>
+                    </tr>
+                    {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock%}
+
+

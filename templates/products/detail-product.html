@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class='row'>
+        <div class="card h-100">
+            <div class='card-body'>
+                <img src="{{object.image.url}}" alt="" weight=200 height=200>
+                <p>{{object.title}} | {{object.description}} </p>
+
+                <button>додати до корзини </button>
+
+
+
+            </div>
+ 
+
+        </div>
+ 
+    
+
+    </div>
+
+{% endblock content %}
+
